@@ -1,0 +1,15 @@
+
+<%= simple_form_for(@feedback) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name ,label: "Nombre" %>
+    <%= f.input :email,label: "Correo" %>
+    <%= f.input :comments,label: "Comentario" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit ,'Crear Comentario', :class => "btn btn-warning"%>
+  </div>
+<% end %>

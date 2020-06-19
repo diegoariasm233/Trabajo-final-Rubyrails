@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<h1>Hola cliente,</h1>
+<p>
+  Su devolución para el ID de pedido <%=@order.id %> ha sido aprobado.<br/>
+  <strong>Detalles:</strong>
+  <br/>
+  <%@item = Item.find(@return_item.item_id)%><br/>
+  <strong>Nombre:</strong>  <%= @item.name %><br/>
+  <strong>Comprado el:</strong>  <%= @order.created_at %><br/>
+  <strong>Devolución solicitada el: </strong> <%= @return_item.created_at %><br/>
+</p>
+</body>
+</html>

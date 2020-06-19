@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @feedback.name %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @feedback.email %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @feedback.comments %>
+</p>
+
+<%= link_to 'Atras', welcome_index_path , :class => "btn btn-warning"%>

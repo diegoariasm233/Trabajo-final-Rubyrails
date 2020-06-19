@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Usuarios</h1>
+
+<table class="table table-dark">
+  <thead>
+  <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col">Correo</th>
+    <th scope="col">Numero Telefonico</th>
+    <th scope="col">Direccion</th>
+    <th scope="col">Fecha de Cumpleaños</th>
+    <th scope="col"></th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+    <tr scope="row">
+      <td><%= user.Name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.Phone_number %></td>
+      <td><%= user.address %></td>
+      <td><%= user.dob %></td>
+      <td><%= link_to 'Ver', user, :class => "btn btn-warning" %>
+        <%= link_to 'Editar', edit_user_path(user), :class => "btn btn-warning"  %>
+      <%if user.role !='admin' %>
+        <%= link_to 'Eliminar', user_path(:id => user.id), method: :delete, data: {confirm: 'Estas seguro?'}, :class => "btn btn-warning" %>
+      <%end %>
+      <%= link_to 'Ver Historial de compra',purchase_history_byUser_path(:user => user), :class => "btn btn-info"   %>
+
+    </tr>
+
+  <% end %>
+
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'Nuevo Usuario', new_user_path, :class => "btn btn-warning"  %>

@@ -1,0 +1,31 @@
+<%= simple_form_for item do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= label_tag("Agregar Imagen de Item") %>
+    <br/>
+    <%= f.file_field :image %>
+    <br/><br/><br/>
+    <%= f.input :name, label: "Nombre", required: true%>
+    <%= f.input :brand, label: "Marca", required: true %>
+    <%= f.input :category,label:"Categoria", required: true %>
+    <%= label_tag("Esta restringida?") %>
+    <%= f.input_field :is_restricted, as: :boolean , required: true %>
+    <br/>
+    <%= label_tag("Está restringida la edad?") %>
+    <%= f.input_field :is_age_restricted, as: :boolean , required: true %>
+    <br/>
+    <%= label_tag("Cantidad") %>
+    <br/>
+    <%= f.number_field :quantity %>
+    <br/>
+    <%= label_tag("Precio") %>
+    <br/>
+    <%= f.text_field :cost %>
+    <%= f.input :taxslab,label: "Inpuesto", as: :select, collection: [[5, '5%'], [10, '10%'], [12.5, '12.5%']] %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Crear Item",:class => "btn btn-warning" %>
+  </div>
+
+<% end %>

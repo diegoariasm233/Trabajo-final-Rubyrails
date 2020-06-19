@@ -1,0 +1,26 @@
+<h2>Iniciar Session</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email,
+                label: "Correo",
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "Correo" } %>
+    <%= f.input :password,
+                label: "Contraseña",
+                required: false,
+                input_html: { autocomplete: "Contraseña" } %>
+
+  </div>
+
+  <div class="form-actions" style="display:inline-block;">
+    <%= f.button :submit, "Iniciar Session" , class: 'btn btn-warning'%>
+  </div>
+
+<% end %>
+<br/><br/>
+<%= button_to "Iniciar Session con Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-info" %>
+<br/>
+<%= render "users/shared/links" %>
+
